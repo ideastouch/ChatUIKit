@@ -8,23 +8,23 @@
 
 import UIKit
 
-protocol SenderProtocol: Equatable {
+public protocol SenderProtocol: Equatable {
     var objectId: String? { get }
     var name: String? { get } }
 
-protocol Message {
+public protocol Message {
     associatedtype Sender:SenderProtocol
     var message: String? { get }
     var sender: Sender? { get }
     var timeStr: String? { get }
     var dayStr: String? { get } }
 
-class ChatDataSource<M:Message, SP:SenderProtocol>: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var owner:SP
-    var chatList = [M]()
-    var senderName:String
-    var otherName:String
-    init(owner:SP, otherName:String, senderName:String = "Me") {
+public class ChatDataSource<M:Message, SP:SenderProtocol>: NSObject, UITableViewDataSource, UITableViewDelegate {
+    public var owner:SP
+    public var chatList = [M]()
+    public var senderName:String
+    public var otherName:String
+    public init(owner:SP, otherName:String, senderName:String = "Me") {
         self.owner = owner
         self.otherName = otherName
         self.senderName = senderName }
@@ -68,28 +68,28 @@ class ChatDataSource<M:Message, SP:SenderProtocol>: NSObject, UITableViewDataSou
         return  BubbleData(description: description, text: text) }
     
     // Protocol UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chatList.count }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let bubbleData = self.bubbleData(indexPath) {
             let attributedText = bubbleData.attributedText
             let height = BubbleTableViewCell.heightWithAttributedString(attributedText, width: tableView.frame.size.width)
             return height }
         return UITableView.automaticDimension }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatViewController.CellIdentifier, for: indexPath)
         cell.selectionStyle = .none
         if let bubbleTableViewCell = cell as? BubbleTableViewCell {
             bubbleTableViewCell.bubbleData = self.bubbleData(indexPath) }
         return cell }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         //TODO: Should be one section for each day.
         return 1 }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //TODO: Shoul be the date of the first message sent on this section.
         return nil  }
 }

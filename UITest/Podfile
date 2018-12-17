@@ -1,0 +1,13 @@
+# Uncomment the next line to define a global platform for your project
+workspace 'ChatUIKitTest'
+platform :ios, '12.1'
+use_frameworks!
+
+
+target 'ChatUIKittest' do
+  project 'ChatUIKittest/ChatUIKittest.xcodeproj'
+  use_frameworks!
+  inherit! :search_paths
+    # Pods for testing
+  pod 'ChatUIKit', :path => '../.'
+end

@@ -74,25 +74,20 @@ class BubbleData {
                 self.name = nil } }
     
     static var chatFontInfo:UIFont {
-        guard let font = UIFont(name: "GothamNarrow-Bold", size: 12) else {
+        guard let font = UIFont.chatUIKit(name: "GothamNarrow-Bold", size: 12) else {
             assertionFailure("Missing font GothamNarrow-Bold size 12, check test and assets")
             return UIFont.systemFont(ofSize: 12) }
         return font }
     static var chatFontBoddy:UIFont {
-        guard let font = UIFont(name: "GothamNarrow-Bold", size: 15) else {
+        guard let font = UIFont.chatUIKit(name: "GothamNarrow-Bold", size: 15) else {
             assertionFailure("Missing font GothamNarrow-Bold size 15, check test and assets")
             return UIFont.systemFont(ofSize: 15) }
         return font }
     
     static func chatColor(sender:Sender) -> UIColor {
-        let chatGray = UIColor(named: "ChatGray")
-        let chatLightGray = UIColor(named: "ChatLightGray")
-        let colorOptional = sender != Sender.right ? chatGray : chatLightGray
-        guard let color = colorOptional else {
-            assertionFailure("Color missing, heck test and assets for color \(sender)")
-            return UIColor.gray
-        }
-        return color
+        let chatGray = UIColor.chatGray
+        let chatLightGray = UIColor.chatLightGray
+        return sender != Sender.right ? chatGray : chatLightGray
     }
     
     fileprivate var attributedHeader:NSAttributedString? {
@@ -190,7 +185,7 @@ class BubbleTableViewCell : UITableViewCell {
         didSet {
             if let bubbleData = self.bubbleData {
                 if let named = bubbleData.name {
-                    let image = UIImage(named: named)
+                    let image = UIImage.chatUIKit(named: named)
                     if let imageSize = image?.size {
                         let height = imageSize.height * 0.5
                         let width = imageSize.width * 0.5

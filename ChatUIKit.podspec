@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ChatUIKit"
-  s.version      = "0.9.0"
+  s.version      = "0.9.1"
   s.summary      = "An exquisite UIKit library for chatting interface."
 
   # This description is used to generate tags and improve search results.
@@ -73,6 +73,7 @@ TBD: An exquisite UIKit library for chatting interface.
   s.ios.deployment_target = '11.0'
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
+  s.swift_version = "4.2"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,7 +93,8 @@ TBD: An exquisite UIKit library for chatting interface.
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "ChatUIKit/ChatUIKit/*"
+  s.source_files  = "ChatUIKit/ChatUIKit/**"
+  s.resources = 'ChatUIKit/ChatUIKit/**/*.{swift,xcassets,json,png,xib,otf,plist}'
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
