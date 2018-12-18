@@ -11,8 +11,10 @@ import UIKit
 public extension UIFont {
     static func registerFontWithFilename(name: String) {
         //TODO: Do something on guards
-//        if let frameworkBundle = Bundle(identifier: bundleIdentifierString) {
-        guard let path = Bundle.init(identifier: "org.cocoapods.ChatUIKit")?.path(forResource: name, ofType: "otf") else { return }
+        guard let customBundle = Bundle.init(identifier: "org.cocoapods.ChatUIKit")?.path(forResource: "ChatUIKitBundle", ofType: "bundle") else {
+            return }
+        let path = customBundle.appending("/\(name).otf")
+//        guard let path = Bundle.init(identifier: "org.cocoapods.ChatUIKit")?.path(forResource: name, ofType: "otf") else { return }
         guard let fontData = NSData(contentsOfFile: path) else { return }
         guard let dataProvider = CGDataProvider(data: fontData) else { return }
         guard let fontRef = CGFont(dataProvider) else { return }

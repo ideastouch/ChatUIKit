@@ -25,6 +25,9 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
                 self.tableView.register(BubbleTableViewCell.self, forCellReuseIdentifier: ChatViewController.CellIdentifier) } } }
     @IBOutlet public weak var navigationBar: UINavigationBar!
     @IBOutlet public weak var navToSafeAreaLayoutConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var toolbarBackground: UIImageView!
+    @IBOutlet weak var textBackground: UIImageView!
     @IBOutlet public weak var sendButton: UIButton!
     @IBOutlet public weak var textView: UITextView!
     @IBOutlet public weak var toolbarHeightLayoutConstraint: NSLayoutConstraint!
@@ -41,7 +44,7 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle.init(identifier: "org.cocoapods.ChatUIKit") //Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
         
