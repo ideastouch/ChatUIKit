@@ -86,8 +86,8 @@ class BubbleData {
     
     static func chatColor(sender:Sender) -> UIColor {
         // TODO: Add test cases for both colors.
-        let chatGray = UIColor.chatUIKit(named: "ChatGray") as? UIColor ?? UIColor.gray
-        let chatLightGray = UIColor.chatUIKit(named: "ChatLightGray") as? UIColor ?? UIColor.lightGray
+        let chatGray = UIColor.chatUIKit(named: "ChatGray") ?? UIColor.gray
+        let chatLightGray = UIColor.chatUIKit(named: "ChatLightGray") ?? UIColor.lightGray
         return sender != Sender.right ? chatGray : chatLightGray
     }
     
