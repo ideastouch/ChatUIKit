@@ -31,3 +31,13 @@ public extension BundleChatUIKit {
         return bundleTypeObject
     }
 }
+
+extension UIColor : BundleTypeConstructor, BundleChatUIKit {
+    public typealias BundleType = UIColor
+}
+
+extension UIImage : BundleTypeConstructor, BundleChatUIKit {
+    public typealias BundleType = UIImage
+}
+
+
