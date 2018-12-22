@@ -11,24 +11,23 @@ import UIKit
 public extension UIFont {
     static func registerFontWithFilename(name: String) {
         //TODO: Do something on guards
-        guard let customBundle = Bundle.init(identifier: "org.cocoapods.ChatUIKit")?.path(forResource: "ChatUIKitBundle", ofType: "bundle") else {
-            return }
-        let path = customBundle.appending("/\(name).otf")
-//        guard let path = Bundle.init(identifier: "org.cocoapods.ChatUIKit")?.path(forResource: name, ofType: "otf") else { return }
-        guard let fontData = NSData(contentsOfFile: path) else { return }
-        guard let dataProvider = CGDataProvider(data: fontData) else { return }
-        guard let fontRef = CGFont(dataProvider) else { return }
+        guard let bundle = Bundle(identifier: "org.cocoapods.ChatUIKit"),
+            let fontsBundleURL = bundle.url(forResource: "Fonts", withExtension: "bundle"),
+            let fontsBundle = Bundle(url: fontsBundleURL),
+            let fontURL = fontsBundle.url(forResource: name, withExtension: "otf"),
+            let fontData = CGDataProvider(url: fontURL as CFURL),
+            let font = CGFont(fontData) else  { return }
         var errorRef: Unmanaged<CFError>? = nil
-        if (CTFontManagerRegisterGraphicsFont(fontRef, &errorRef) == false) {
+        if (CTFontManagerRegisterGraphicsFont(font, &errorRef) == false) {
             print("Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.")
         }
     }
     
     class func chatUIKit(name:String, size: CGFloat) -> UIFont? {
-        guard let color =  UIFont(name: "GothamNarrow-Bold", size: size) else {
+        guard let font =  UIFont(name: "GothamNarrow-Bold", size: size) else {
             self.registerFontWithFilename(name:name)
             return UIFont(name: "GothamNarrow-Bold", size: size)
         }
-        return color
+        return font
     }
 }

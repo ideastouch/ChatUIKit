@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,7 +61,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmh-Gt-1mG" userLabel="View bottom">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toolbarbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ix-zG-oUr">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToolbarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7ix-zG-oUr">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg5-nU-STP">
@@ -91,7 +90,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-Qb-bzf">
                             <rect key="frame" x="8" y="6" width="305" height="34"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="fea-7g-yE2">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToolbarTextBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fea-7g-yE2">
                                     <rect key="frame" x="0.0" y="0.0" width="305" height="34"/>
                                     <rect key="contentStretch" x="0.5" y="0.5" width="0.0" height="0.0"/>
                                 </imageView>
@@ -209,7 +208,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="textbg.png" width="30" height="26"/>
-        <image name="toolbarbg.png" width="4" height="40"/>
+        <image name="ToolbarBackground" width="4" height="40"/>
+        <image name="ToolbarTextBackground" width="30" height="26.5"/>
     </resources>
 </document>

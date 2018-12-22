@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C97A58E221C796D600EFAD36 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A58E121C796D600EFAD36 /* UIImage+Ext.swift */; };
 		C97A58E421C7A20600EFAD36 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */; };
+		C97A58EF21CD949D00EFAD36 /* ChatUIKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97A58EE21CD949D00EFAD36 /* ChatUIKit.xcassets */; };
+		C97A58F821CDAA8700EFAD36 /* Fonts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C97A58F721CDAA8700EFAD36 /* Fonts.bundle */; };
+		C97A58FB21CDBA9900EFAD36 /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */; };
 		C9B6808821C6EA860068697F /* ChatUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B6807E21C6EA860068697F /* ChatUIKit.framework */; };
 		C9B6808D21C6EA860068697F /* ChatUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B6808C21C6EA860068697F /* ChatUIKitTests.swift */; };
 		C9B6808F21C6EA860068697F /* ChatUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9B6808121C6EA860068697F /* ChatUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,7 +25,6 @@
 		C9B680A621C6F2250068697F /* BubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */; };
 		C9B680FF21C789CC0068697F /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B680FE21C789CC0068697F /* UIColor+Ext.swift */; };
 		C9B6810021C789CC0068697F /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B680FE21C789CC0068697F /* UIColor+Ext.swift */; };
-		C9B6813321C794A50068697F /* ChatUIKitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C9B6813221C794A50068697F /* ChatUIKitBundle.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +40,9 @@
 /* Begin PBXFileReference section */
 		C97A58E121C796D600EFAD36 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
-		C97A58E521C8B08600EFAD36 /* toolbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarbg.png; sourceTree = "<group>"; };
-		C97A58E721C8B08E00EFAD36 /* toolbarbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarbg@2x.png"; sourceTree = "<group>"; };
-		C97A58E921C8B09400EFAD36 /* textbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbg.png; sourceTree = "<group>"; };
-		C97A58EB21C8B09A00EFAD36 /* textbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textbg@2x.png"; sourceTree = "<group>"; };
+		C97A58EE21CD949D00EFAD36 /* ChatUIKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ChatUIKit.xcassets; sourceTree = "<group>"; };
+		C97A58F721CDAA8700EFAD36 /* Fonts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Fonts.bundle; sourceTree = "<group>"; };
+		C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Ext.swift"; sourceTree = "<group>"; };
 		C9B6807E21C6EA860068697F /* ChatUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B6808121C6EA860068697F /* ChatUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatUIKit.h; sourceTree = "<group>"; };
 		C9B6808221C6EA860068697F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		C9B6809D21C6F0F80068697F /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTableViewCell.swift; sourceTree = "<group>"; };
 		C9B680FE21C789CC0068697F /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
-		C9B6813221C794A50068697F /* ChatUIKitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChatUIKitBundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +75,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C97A58F921CDAFF500EFAD36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */,
+				C97A58E121C796D600EFAD36 /* UIImage+Ext.swift */,
+				C9B680FE21C789CC0068697F /* UIColor+Ext.swift */,
+				C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		C9B6807421C6EA860068697F = {
 			isa = PBXGroup;
 			children = (
@@ -96,10 +107,8 @@
 		C9B6808021C6EA860068697F /* ChatUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C97A58F921CDAFF500EFAD36 /* Extensions */,
 				C9B6808121C6EA860068697F /* ChatUIKit.h */,
-				C97A58E121C796D600EFAD36 /* UIImage+Ext.swift */,
-				C9B680FE21C789CC0068697F /* UIColor+Ext.swift */,
-				C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */,
 				C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */,
 				C9B6809B21C6F0F80068697F /* ChatDataSource.swift */,
 				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
@@ -129,12 +138,9 @@
 		C9B6813121C78EF20068697F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C97A58E921C8B09400EFAD36 /* textbg.png */,
-				C97A58EB21C8B09A00EFAD36 /* textbg@2x.png */,
-				C97A58E521C8B08600EFAD36 /* toolbarbg.png */,
-				C97A58E721C8B08E00EFAD36 /* toolbarbg@2x.png */,
-				C9B6813221C794A50068697F /* ChatUIKitBundle.bundle */,
 				C9B6809D21C6F0F80068697F /* ChatViewController.xib */,
+				C97A58EE21CD949D00EFAD36 /* ChatUIKit.xcassets */,
+				C97A58F721CDAA8700EFAD36 /* Fonts.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -232,7 +238,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9B680A221C6F0F80068697F /* ChatViewController.xib in Resources */,
-				C9B6813321C794A50068697F /* ChatUIKitBundle.bundle in Resources */,
+				C97A58EF21CD949D00EFAD36 /* ChatUIKit.xcassets in Resources */,
+				C97A58F821CDAA8700EFAD36 /* Fonts.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +262,7 @@
 				C97A58E221C796D600EFAD36 /* UIImage+Ext.swift in Sources */,
 				C9B680A521C6F2250068697F /* BubbleTableViewCell.swift in Sources */,
 				C9B680FF21C789CC0068697F /* UIColor+Ext.swift in Sources */,
+				C97A58FB21CDBA9900EFAD36 /* Bundle+Ext.swift in Sources */,
 				C9B6809E21C6F0F80068697F /* ChatDataSource.swift in Sources */,
 				C9B680A021C6F0F80068697F /* ChatViewContoller.swift in Sources */,
 			);

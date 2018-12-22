@@ -13,7 +13,8 @@ TBD: An exquisite UIKit library for chatting interface.
   s.swift_version = "4.2"
   s.source       = { :git => "https://github.com/ideastouch/ChatUIKit.git", :tag => "#{s.version}" }
   s.source_files  = "ChatUIKit/ChatUIKit/*.{h,swift}"
-  s.resource_bundles = {'ChatUIKit' => ['ChatUIKit/ChatUIKit/*.{bundle}']}
-  s.resources = 'ChatUIKit/ChatUIKit/*.{png,bundle,xib}'
+  # s.resource_bundles = {'ChatUIKit' => ['ChatUIKit/ChatUIKit/*.{xcassets}']}
+  # s.resource_bundles = {'Fonts' => ['ChatUIKit/ChatUIKit/Fonts.bundle']}
+  s.resources = 'ChatUIKit/ChatUIKit/*.{xib,otf,xcassets,bundle}'
   s.requires_arc = true
 end
