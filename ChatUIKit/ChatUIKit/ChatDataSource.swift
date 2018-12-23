@@ -47,8 +47,7 @@ public class ChatDataSource<M:Message, SP:SenderProtocol>: NSObject, UITableView
         case BubbleData.Sender.other:
             return self.otherName
         default:
-            return nil }
-    }
+            return nil } }
     
     fileprivate func bubbleData(_ indexPath: IndexPath) -> BubbleData? {
         let index = indexPath.row
@@ -56,7 +55,7 @@ public class ChatDataSource<M:Message, SP:SenderProtocol>: NSObject, UITableView
         guard let boddy = chat.message else { return nil }
         let prevSender = self.positionToBubbleSender(index - 1)
         let sender = self.positionToBubbleSender(index)
-        let nextSender = positionToBubbleSender(index + 1)
+        let nextSender = self.positionToBubbleSender(index + 1)
         
         let header = self.senderHeader(sender, chat:chat)
         let position =  BubbleData.senderGroupToPosition(prevSender, current: sender, next: nextSender)

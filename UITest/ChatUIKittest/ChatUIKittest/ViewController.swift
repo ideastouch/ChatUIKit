@@ -45,11 +45,13 @@ class PersonMessage: Message {
     static var objectIdSet = Set<String>()
     typealias Sender = Person
     var objectId: String?
+    var date: Date
     var message: String?
     var sender: Sender?
-    var timeStr: String?
-    var dayStr: String?
+    lazy var timeStr: String? = self.date.chatUIKitTimeStr
+    lazy var dayStr: String? = self.date.chatUIKitDayStr
     init() {
+        self.date = Date()
         for _ in 0..<10 {
             let objectId = RandomNameString(length: 9)
             if PersonMessage.objectIdSet.contains(objectId) { continue }
@@ -87,8 +89,6 @@ class ViewController: UIViewController {
                 let personMessage = PersonMessage()
                 personMessage.message = message
                 personMessage.sender = self.owner
-                personMessage.timeStr = "Now"
-                personMessage.dayStr = "Today"
                 if chatDataSource.chatList.contains( where: { $0 == personMessage } ) { return }
                 chatDataSource.chatList.append(personMessage)
                 chatViewController.tableView.reloadData()

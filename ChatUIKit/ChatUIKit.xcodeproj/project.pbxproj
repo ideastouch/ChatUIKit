@@ -22,6 +22,21 @@
 		C9B680A321C6F0F80068697F /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B6809D21C6F0F80068697F /* ChatViewController.xib */; };
 		C9B680A521C6F2250068697F /* BubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */; };
 		C9B680A621C6F2250068697F /* BubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */; };
+		C9D2C4E021CDF1690092AEFC /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */; };
+		C9D2C4E121CDF16D0092AEFC /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */; };
+		C9D2C4E221CDF1CD0092AEFC /* ChatUIKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97A58EE21CD949D00EFAD36 /* ChatUIKit.xcassets */; };
+		C9D2C4E321CDF1D40092AEFC /* Fonts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C97A58F721CDAA8700EFAD36 /* Fonts.bundle */; };
+		C9D2C4E521CDF2100092AEFC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9B6808221C6EA860068697F /* Info.plist */; };
+		C9D2C4E721CDF8480092AEFC /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4E621CDF8480092AEFC /* UIColor+Ext.swift */; };
+		C9D2C4E821CDF8480092AEFC /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4E621CDF8480092AEFC /* UIColor+Ext.swift */; };
+		C9D2C4EA21CDF8B00092AEFC /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4E921CDF8B00092AEFC /* UIImage+Ext.swift */; };
+		C9D2C4EB21CDF8B00092AEFC /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4E921CDF8B00092AEFC /* UIImage+Ext.swift */; };
+		C9D2C4ED21CDF9010092AEFC /* ChatUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */; };
+		C9D2C4EE21CDF9010092AEFC /* ChatUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */; };
+		C9D2C4F021CDFFC60092AEFC /* BubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */; };
+		C9D2C4F121CDFFC60092AEFC /* BubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */; };
+		C9D2C4F321CF40400092AEFC /* Message+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4F221CF40400092AEFC /* Message+Ext.swift */; };
+		C9D2C4F421CF40400092AEFC /* Message+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4F221CF40400092AEFC /* Message+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +64,11 @@
 		C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewContoller.swift; sourceTree = "<group>"; };
 		C9B6809D21C6F0F80068697F /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTableViewCell.swift; sourceTree = "<group>"; };
+		C9D2C4E621CDF8480092AEFC /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		C9D2C4E921CDF8B00092AEFC /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUIKit.swift; sourceTree = "<group>"; };
+		C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleData.swift; sourceTree = "<group>"; };
+		C9D2C4F221CF40400092AEFC /* Message+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +95,9 @@
 			children = (
 				C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */,
 				C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */,
+				C9D2C4E621CDF8480092AEFC /* UIColor+Ext.swift */,
+				C9D2C4E921CDF8B00092AEFC /* UIImage+Ext.swift */,
+				C9D2C4F221CF40400092AEFC /* Message+Ext.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -102,6 +125,8 @@
 			children = (
 				C97A58F921CDAFF500EFAD36 /* Extensions */,
 				C9B6808121C6EA860068697F /* ChatUIKit.h */,
+				C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */,
+				C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */,
 				C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */,
 				C9B6809B21C6F0F80068697F /* ChatDataSource.swift */,
 				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
@@ -230,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D2C4E521CDF2100092AEFC /* Info.plist in Resources */,
 				C9B680A221C6F0F80068697F /* ChatViewController.xib in Resources */,
 				C97A58EF21CD949D00EFAD36 /* ChatUIKit.xcassets in Resources */,
 				C97A58F821CDAA8700EFAD36 /* Fonts.bundle in Resources */,
@@ -240,6 +266,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D2C4E221CDF1CD0092AEFC /* ChatUIKit.xcassets in Resources */,
+				C9D2C4E321CDF1D40092AEFC /* Fonts.bundle in Resources */,
 				C9B680A321C6F0F80068697F /* ChatViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,11 +279,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D2C4F021CDFFC60092AEFC /* BubbleData.swift in Sources */,
+				C9D2C4ED21CDF9010092AEFC /* ChatUIKit.swift in Sources */,
+				C9D2C4EA21CDF8B00092AEFC /* UIImage+Ext.swift in Sources */,
 				C97A58E421C7A20600EFAD36 /* UIFont+Ext.swift in Sources */,
 				C9B680A521C6F2250068697F /* BubbleTableViewCell.swift in Sources */,
 				C97A58FB21CDBA9900EFAD36 /* Bundle+Ext.swift in Sources */,
+				C9D2C4E721CDF8480092AEFC /* UIColor+Ext.swift in Sources */,
 				C9B6809E21C6F0F80068697F /* ChatDataSource.swift in Sources */,
 				C9B680A021C6F0F80068697F /* ChatViewContoller.swift in Sources */,
+				C9D2C4F321CF40400092AEFC /* Message+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D2C4E821CDF8480092AEFC /* UIColor+Ext.swift in Sources */,
+				C9D2C4EB21CDF8B00092AEFC /* UIImage+Ext.swift in Sources */,
+				C9D2C4E121CDF16D0092AEFC /* UIFont+Ext.swift in Sources */,
+				C9D2C4F121CDFFC60092AEFC /* BubbleData.swift in Sources */,
+				C9D2C4EE21CDF9010092AEFC /* ChatUIKit.swift in Sources */,
 				C9B680A121C6F0F80068697F /* ChatViewContoller.swift in Sources */,
+				C9D2C4F421CF40400092AEFC /* Message+Ext.swift in Sources */,
 				C9B6809F21C6F0F80068697F /* ChatDataSource.swift in Sources */,
+				C9D2C4E021CDF1690092AEFC /* Bundle+Ext.swift in Sources */,
 				C9B6808D21C6EA860068697F /* ChatUIKitTests.swift in Sources */,
 				C9B680A621C6F2250068697F /* BubbleTableViewCell.swift in Sources */,
 			);

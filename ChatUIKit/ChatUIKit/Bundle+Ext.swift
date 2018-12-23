@@ -7,37 +7,25 @@
 //
 
 import Foundation
+import UIKit
 
-class ChatUIKit {
-    class func bundle() -> Bundle {
-        return Bundle(for: ChatUIKit.self)
-    }
-}
-
-public protocol BundleTypeConstructor {
+protocol BundleTypeConstructor {
     init?(named name: String, in bundle: Bundle?, compatibleWith traitCollection: UITraitCollection?)
 }
 
-public protocol BundleChatUIKit {
+protocol BundleChatUIKit {
     associatedtype BundleType: BundleTypeConstructor
     static func chatUIKit(named:String) -> BundleType?
 }
 
-public extension BundleChatUIKit {
-    static public func chatUIKit(named:String) -> BundleType? {
-        // TODO: Add assert on guards
-        let bundle = ChatUIKit.bundle()
-        guard let bundleTypeObject = BundleType(named: named, in: bundle, compatibleWith: nil) else { return nil }
-        return bundleTypeObject
+func ChatUIKitInit<T:BundleTypeConstructor>(named:String) -> T? {
+    let bundle = ChatUIKit.bundle()
+    guard let bundleTypeObject = T(named: named, in: bundle, compatibleWith: nil) else {
+        assertionFailure("Object named \(named) wasn't find in ChatUIKit,bundle()")
+        return nil
     }
+    return bundleTypeObject
 }
 
-extension UIColor : BundleTypeConstructor, BundleChatUIKit {
-    public typealias BundleType = UIColor
-}
-
-extension UIImage : BundleTypeConstructor, BundleChatUIKit {
-    public typealias BundleType = UIImage
-}
 
 

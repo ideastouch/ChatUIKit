@@ -23,36 +23,35 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
         didSet {
             if self.tableView != nil {
                 self.tableView.register(BubbleTableViewCell.self, forCellReuseIdentifier: ChatViewController.CellIdentifier) } } }
-    @IBOutlet public weak var navigationBar: UINavigationBar!
-    @IBOutlet public weak var navToSafeAreaLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navToSafeAreaLayoutConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var toolbarBackground: UIImageView!
     @IBOutlet weak var textBackground: UIImageView!
-    @IBOutlet public weak var sendButton: UIButton!
-    @IBOutlet public weak var textView: UITextView!
-    @IBOutlet public weak var toolbarHeightLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet public weak var fromBottomSafeareaLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet public weak var textViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var toolbarHeightLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var fromBottomSafeareaLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     @IBAction public func tapGestureRecognizerViewAction(_ sender: Any) {
         if self.textView.isFirstResponder {
             self.textView.resignFirstResponder() } }
     
-    public init() {
+    init() {
         super.init(nibName: "ChatViewController", bundle: nil) }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        let bundle = Bundle.init(identifier: "org.cocoapods.ChatUIKit") //Bundle(for: type(of: self))
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: ChatUIKit.bundle())
         let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
         
         self.view = nibView
         self.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.translatesAutoresizingMaskIntoConstraints = true }
     
-    override open func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(BubbleTableViewCell.self, forCellReuseIdentifier: ChatViewController.CellIdentifier)
         self.tableView.dataSource = self.dataSource
@@ -61,12 +60,14 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(ChatViewController.keyboardWillChangeFrameNotificationAction(_:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(ChatViewController.keyboardDidChangeFrameNotificationAction(_:)),
-                                               name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ChatViewController.keyboardWillChangeFrameNotificationAction(_:)),
+            name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ChatViewController.keyboardDidChangeFrameNotificationAction(_:)),
+            name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
         self.navigationItem.title = self.navigationTitle
         self.sendButton.isEnabled = self.textView.text.count > 0 }
     
@@ -89,7 +90,7 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
         else {
             return nil } }
     
-    @objc public func keyboardWillChangeFrameNotificationAction(_ notification:Notification){
+    @objc func keyboardWillChangeFrameNotificationAction(_ notification:Notification){
         if let userInfo = (notification as NSNotification).userInfo {
             guard let (animationCurveUser, animationDurationUser, heightEnd) =
                 self.keyboardUserInfoValues(userInfo as NSDictionary) else {
@@ -120,7 +121,7 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
                                    completion: { (Bool) in }) }
                 else { animationBlock() } } } }
     
-    @objc public func keyboardDidChangeFrameNotificationAction(_ notification:Notification){
+    @objc func keyboardDidChangeFrameNotificationAction(_ notification:Notification){
         if #available(iOS 11.0, *) { return }
         guard let userInfo = (notification as NSNotification).userInfo else { return }
         guard let (_, _, heightEnd) =
@@ -132,7 +133,7 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
                 self.view.layoutIfNeeded() }
             animationBlock() } }
     
-    public func checkOnNavigationPosition () {
+    func checkOnNavigationPosition () {
         if #available(iOS 11.0, *) { return }
         if (self.navigationBar.frame.origin.y != 20) {
             UIView.animate(withDuration: 0.5) {
@@ -153,10 +154,10 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
         self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true) }
     
     
-    public func textViewDidBeginEditing(_ textView: UITextView) {
+    private func textViewDidBeginEditing(_ textView: UITextView) {
         self.resetTablePosition() }
     
-    public func textViewDidEndEditing(_ textView: UITextView) {
+    private func textViewDidEndEditing(_ textView: UITextView) {
         self.resetTablePosition() }
     
     
@@ -187,7 +188,7 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
             self.toolbarHeightLayoutConstraint.constant = constant
             self.view.layoutIfNeeded() } }
     
-    @IBAction public func sendAction(_ sender: Any) {
+    @IBAction func sendAction(_ sender: Any) {
         if self.textView.isFirstResponder {
             self.textView.resignFirstResponder() }
         guard let message = self.textView.text, message.count > 0 else { return }
