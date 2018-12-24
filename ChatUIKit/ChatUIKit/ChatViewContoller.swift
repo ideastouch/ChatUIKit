@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ChatViewController: UIViewController, UITextViewDelegate {
+public class ChatViewController: UIViewController {
     static public let CellIdentifier = "ChatCellIdentifier"
     public var navigationTitle = "Messages"
     public var dataSource: UITableViewDataSource? { didSet {
@@ -122,7 +122,9 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
                 else { animationBlock() } } } }
     
     @objc func keyboardDidChangeFrameNotificationAction(_ notification:Notification){
-        if #available(iOS 11.0, *) { return }
+        if #available(iOS 11.0, *) {
+            self.resetTablePosition()
+            return }
         guard let userInfo = (notification as NSNotification).userInfo else { return }
         guard let (_, _, heightEnd) =
             self.keyboardUserInfoValues(userInfo as NSDictionary) else {
@@ -131,7 +133,8 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
             let animationBlock = { () in
                 self.fromBottomSafeareaLayoutConstraint.constant = -heightEnd
                 self.view.layoutIfNeeded() }
-            animationBlock() } }
+            animationBlock() }
+        self.resetTablePosition() }
     
     func checkOnNavigationPosition () {
         if #available(iOS 11.0, *) { return }
@@ -153,40 +156,6 @@ public class ChatViewController: UIViewController, UITextViewDelegate {
         let indexPath = NSIndexPath(indexes:[0, rowCount - 1], length:2) as IndexPath
         self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true) }
     
-    
-    private func textViewDidBeginEditing(_ textView: UITextView) {
-        self.resetTablePosition() }
-    
-    private func textViewDidEndEditing(_ textView: UITextView) {
-        self.resetTablePosition() }
-    
-    
-    public func textViewDidChange(_ textView: UITextView) {
-        struct HeightSizes {
-            static let min:CGFloat = 44
-            static let font = UIFont.systemFont(ofSize: 15.0)
-            static let row = font.lineHeight
-            static let max = 5 * row
-            static let delta = min - row
-            static let attributes = [NSAttributedString.Key.font:font]
-            static func height(_ textHeight:CGFloat) -> CGFloat {
-                if textHeight > max { return  max + delta }
-                let rows = textHeight / row
-                if rows > 1 {
-                    return textHeight + delta }
-                return min } }
-        self.sendButton.isEnabled = textView.text.count > 0
-        let attributeString = NSAttributedString(
-            string:textView.text,
-            attributes:HeightSizes.attributes)
-        let size = attributeString.boundingRect(
-            with: CGSize(width: textView.frame.size.width, height: CGFloat.greatestFiniteMagnitude),
-            options: NSStringDrawingOptions.usesLineFragmentOrigin,
-            context: nil)
-        let constant = HeightSizes.height(size.height)
-        if self.toolbarHeightLayoutConstraint.constant != constant {
-            self.toolbarHeightLayoutConstraint.constant = constant
-            self.view.layoutIfNeeded() } }
     
     @IBAction func sendAction(_ sender: Any) {
         if self.textView.isFirstResponder {

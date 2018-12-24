@@ -37,6 +37,12 @@
 		C9D2C4F121CDFFC60092AEFC /* BubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */; };
 		C9D2C4F321CF40400092AEFC /* Message+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4F221CF40400092AEFC /* Message+Ext.swift */; };
 		C9D2C4F421CF40400092AEFC /* Message+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4F221CF40400092AEFC /* Message+Ext.swift */; };
+		C9D2C4F821D06D270092AEFC /* CVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */; };
+		C9D2C4F921D06D270092AEFC /* CVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */; };
+		C9D2C50521D093BF0092AEFC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C50421D093BF0092AEFC /* Message.swift */; };
+		C9D2C50621D093BF0092AEFC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C50421D093BF0092AEFC /* Message.swift */; };
+		C9D2C50821D093FA0092AEFC /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C50721D093FA0092AEFC /* Sender.swift */; };
+		C9D2C50921D093FA0092AEFC /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C50721D093FA0092AEFC /* Sender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,9 @@
 		C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUIKit.swift; sourceTree = "<group>"; };
 		C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleData.swift; sourceTree = "<group>"; };
 		C9D2C4F221CF40400092AEFC /* Message+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Ext.swift"; sourceTree = "<group>"; };
+		C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		C9D2C50421D093BF0092AEFC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C9D2C50721D093FA0092AEFC /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +132,12 @@
 		C9B6808021C6EA860068697F /* ChatUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C9D2C50321D093550092AEFC /* Model */,
+				C9D2C4F621D06A5E0092AEFC /* ModelView */,
+				C9D2C4F521D06A4B0092AEFC /* Controller */,
 				C97A58F921CDAFF500EFAD36 /* Extensions */,
 				C9B6808121C6EA860068697F /* ChatUIKit.h */,
 				C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */,
-				C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */,
-				C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */,
-				C9B6809B21C6F0F80068697F /* ChatDataSource.swift */,
-				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
 				C9B6813121C78EF20068697F /* Resources */,
 				C9B680A821C711290068697F /* Supporting Files */,
 			);
@@ -161,6 +169,34 @@
 				C97A58F721CDAA8700EFAD36 /* Fonts.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C9D2C4F521D06A4B0092AEFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
+				C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C9D2C4F621D06A5E0092AEFC /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */,
+				C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */,
+				C9B6809B21C6F0F80068697F /* ChatDataSource.swift */,
+			);
+			name = ModelView;
+			sourceTree = "<group>";
+		};
+		C9D2C50321D093550092AEFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9D2C50721D093FA0092AEFC /* Sender.swift */,
+				C9D2C50421D093BF0092AEFC /* Message.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,14 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D2C50821D093FA0092AEFC /* Sender.swift in Sources */,
 				C9D2C4F021CDFFC60092AEFC /* BubbleData.swift in Sources */,
 				C9D2C4ED21CDF9010092AEFC /* ChatUIKit.swift in Sources */,
 				C9D2C4EA21CDF8B00092AEFC /* UIImage+Ext.swift in Sources */,
 				C97A58E421C7A20600EFAD36 /* UIFont+Ext.swift in Sources */,
 				C9B680A521C6F2250068697F /* BubbleTableViewCell.swift in Sources */,
 				C97A58FB21CDBA9900EFAD36 /* Bundle+Ext.swift in Sources */,
+				C9D2C4F821D06D270092AEFC /* CVC+UITextViewDelegate.swift in Sources */,
 				C9D2C4E721CDF8480092AEFC /* UIColor+Ext.swift in Sources */,
 				C9B6809E21C6F0F80068697F /* ChatDataSource.swift in Sources */,
+				C9D2C50521D093BF0092AEFC /* Message.swift in Sources */,
 				C9B680A021C6F0F80068697F /* ChatViewContoller.swift in Sources */,
 				C9D2C4F321CF40400092AEFC /* Message+Ext.swift in Sources */,
 			);
@@ -299,11 +338,14 @@
 				C9D2C4E821CDF8480092AEFC /* UIColor+Ext.swift in Sources */,
 				C9D2C4EB21CDF8B00092AEFC /* UIImage+Ext.swift in Sources */,
 				C9D2C4E121CDF16D0092AEFC /* UIFont+Ext.swift in Sources */,
+				C9D2C4F921D06D270092AEFC /* CVC+UITextViewDelegate.swift in Sources */,
 				C9D2C4F121CDFFC60092AEFC /* BubbleData.swift in Sources */,
 				C9D2C4EE21CDF9010092AEFC /* ChatUIKit.swift in Sources */,
 				C9B680A121C6F0F80068697F /* ChatViewContoller.swift in Sources */,
 				C9D2C4F421CF40400092AEFC /* Message+Ext.swift in Sources */,
+				C9D2C50921D093FA0092AEFC /* Sender.swift in Sources */,
 				C9B6809F21C6F0F80068697F /* ChatDataSource.swift in Sources */,
+				C9D2C50621D093BF0092AEFC /* Message.swift in Sources */,
 				C9D2C4E021CDF1690092AEFC /* Bundle+Ext.swift in Sources */,
 				C9B6808D21C6EA860068697F /* ChatUIKitTests.swift in Sources */,
 				C9B680A621C6F2250068697F /* BubbleTableViewCell.swift in Sources */,

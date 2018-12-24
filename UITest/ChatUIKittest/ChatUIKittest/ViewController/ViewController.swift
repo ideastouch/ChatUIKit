@@ -9,61 +9,6 @@
 import UIKit
 import ChatUIKit
 
-
-func RandomNameString(length: Int = 9)->String{
-    enum s {
-        static let c = Array("abcdefghjklmnpqrstuvwxyz12345789")
-        static let k = UInt32(c.count)
-    }
-    var result = [Character](repeating: "a", count: length)
-    for i in 0..<length {
-        let r = Int(arc4random_uniform(s.k))
-        result[i] = s.c[r]
-    }
-    return String(result)
-}
-
-class Person: SenderProtocol {
-    static var objectIdSet = Set<String>()
-    var objectId: String?
-    var name: String?
-    init(name:String) {
-        for _ in 0..<10 {
-            let objectId = RandomNameString(length: 9)
-            if Person.objectIdSet.contains(objectId) { continue }
-            self.objectId = objectId
-        }
-        assert(self.objectId != nil, "Failure generatin object Id")
-        self.name = name
-    }
-    public static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.objectId == rhs.objectId
-    }
-}
-
-class PersonMessage: Message {
-    static var objectIdSet = Set<String>()
-    typealias Sender = Person
-    var objectId: String?
-    var date: Date
-    var message: String?
-    var sender: Sender?
-    lazy var timeStr: String? = self.date.chatUIKitTimeStr
-    lazy var dayStr: String? = self.date.chatUIKitDayStr
-    init() {
-        self.date = Date()
-        for _ in 0..<10 {
-            let objectId = RandomNameString(length: 9)
-            if PersonMessage.objectIdSet.contains(objectId) { continue }
-            self.objectId = objectId
-        }
-        assert(self.objectId != nil, "Failure generatin object Id")
-    }
-    public static func == (lhs: PersonMessage, rhs: PersonMessage) -> Bool {
-        return lhs.objectId == rhs.objectId
-    }
-}
-
 class ViewController: UIViewController {
     var chatViewController : ChatViewController?
     var owner:Person?
@@ -79,9 +24,17 @@ class ViewController: UIViewController {
             identifier  == "ViewControllerToChatViewControllerSegue",
             let chatViewController = segue.destination as? ChatViewController {
             self.chatViewController = chatViewController
-            let owner = Person(name:"Gus")
+            let owner = Person(name:"Paul")
+            if let messages = MockChat.shared?.messages,
+                let first = messages.first(where: { $0.sender?.name == owner.name }),
+                let objectId = first.sender?.objectId {
+                owner.objectId = objectId
+            }
             self.owner = owner
             let chatDataSource = ChatDataSource<PersonMessage, Person>(owner: owner, otherName:"Admin")
+            if let messages = MockChat.shared?.messages {
+                chatDataSource.chatList = messages
+            }
             chatViewController.dataSource = chatDataSource
             chatViewController.delegate = chatDataSource
             chatViewController.sendMessageBlock = { (_ message:String, _ succed:@escaping ()->Void) in

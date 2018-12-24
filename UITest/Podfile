@@ -11,3 +11,19 @@ target 'ChatUIKittest' do
     # Pods for testing
   pod 'ChatUIKit', :path => '../.'
 end
+
+target 'ChatUIKittestUITests' do
+    project 'ChatUIKittest/ChatUIKittest.xcodeproj'
+    use_frameworks!
+    inherit! :search_paths
+    # Pods for testing
+    pod 'ChatUIKit', :path => '../.'
+end
+
+target 'ChatUIKittestTests' do
+    project 'ChatUIKittest/ChatUIKittest.xcodeproj'
+    use_frameworks!
+    inherit! :search_paths
+    # Pods for testing
+    pod 'ChatUIKit', :path => '../.'
+end

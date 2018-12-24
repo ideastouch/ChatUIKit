@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>objectId</key>
+		<string>message00</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Michael01</string>
+			<key>name</key>
+			<string>Michael</string>
+		</dict>
+		<key>message</key>
+		<string>Hey there!</string>
+		<key>date</key>
+		<date>2018-12-24T18:20:00Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message00</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Michael01</string>
+			<key>name</key>
+			<string>Michael</string>
+		</dict>
+		<key>message</key>
+		<string>Anybody there? </string>
+		<key>date</key>
+		<date>2018-12-24T18:20:20Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message01</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Paul01</string>
+			<key>name</key>
+			<string>Paul</string>
+		</dict>
+		<key>message</key>
+		<string>Yup, whats up?</string>
+		<key>date</key>
+		<date>2018-12-24T18:22:00Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message02</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Michael01</string>
+			<key>name</key>
+			<string>Michael</string>
+		</dict>
+		<key>message</key>
+		<string>I didn&apos;t hear from you lastly</string>
+		<key>date</key>
+		<date>2018-12-24T18:24:00Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message03</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Michael01</string>
+			<key>name</key>
+			<string>Michael</string>
+		</dict>
+		<key>message</key>
+		<string>All good?</string>
+		<key>date</key>
+		<date>2018-12-24T18:25:00Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message04</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Michael01</string>
+			<key>name</key>
+			<string>Michael</string>
+		</dict>
+		<key>message</key>
+		<string>Any news?</string>
+		<key>date</key>
+		<date>2018-12-24T18:25:10Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message05</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Paul01</string>
+			<key>name</key>
+			<string>Paul</string>
+		</dict>
+		<key>message</key>
+		<string>All good</string>
+		<key>date</key>
+		<date>2018-12-24T18:25:45Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message06</string>
+		<key>message</key>
+		<string>Hi boys</string>
+		<key>date</key>
+		<date>2018-12-24T18:27:00Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message07</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Paul01</string>
+			<key>name</key>
+			<string>Paul</string>
+		</dict>
+		<key>message</key>
+		<string>OK, We all here now</string>
+		<key>date</key>
+		<date>2018-12-24T18:28:00Z</date>
+	</dict>
+	<dict>
+		<key>objectId</key>
+		<string>message08</string>
+		<key>sender</key>
+		<dict>
+			<key>objectId</key>
+			<string>Paul01</string>
+			<key>name</key>
+			<string>Paul</string>
+		</dict>
+		<key>message</key>
+		<string>Nice day today, guys</string>
+		<key>date</key>
+		<date>2018-12-24T18:29:00Z</date>
+	</dict>
+</array>
+</plist>
