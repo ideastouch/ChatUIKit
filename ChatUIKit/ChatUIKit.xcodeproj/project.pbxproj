@@ -122,7 +122,7 @@
 			children = (
 				C9D2C53C21D1C5B40092AEFC /* Extensions */,
 				C9D2C53D21D1C5E70092AEFC /* Model */,
-				C9D2C53F21D1C6220092AEFC /* Controller */,
+				C9D2C54721D1D1E50092AEFC /* Controller */,
 				C9D2C53E21D1C6070092AEFC /* ModelView */,
 				C9D2C53B21D1C5720092AEFC /* Resources */,
 				C9B6808121C6EA860068697F /* ChatUIKit.h */,
@@ -190,13 +190,13 @@
 			path = ModelView;
 			sourceTree = "<group>";
 		};
-		C9D2C53F21D1C6220092AEFC /* Controller */ = {
+		C9D2C54721D1D1E50092AEFC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
 				C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

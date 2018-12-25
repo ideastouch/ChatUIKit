@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ChatUIKit"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "An exquisite UIKit library for chatting interface."
   s.description  = <<-DESC
 TBD: An exquisite UIKit library for chatting interface.
