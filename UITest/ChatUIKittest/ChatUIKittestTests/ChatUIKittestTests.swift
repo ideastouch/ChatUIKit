@@ -35,7 +35,7 @@ class ChatUIKittestTests: XCTestCase {
             case IsNill
         }
         let sender = Person(name:"Paul")
-        let personMessage = PersonMessage()
+        var personMessage = PersonMessage()
         personMessage.sender = sender
         personMessage.message = "My Message"
         personMessage.date = Date()

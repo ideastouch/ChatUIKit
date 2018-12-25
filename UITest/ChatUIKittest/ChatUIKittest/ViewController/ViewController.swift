@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             identifier  == "ViewControllerToChatViewControllerSegue",
             let chatViewController = segue.destination as? ChatViewController {
             self.chatViewController = chatViewController
-            let owner = Person(name:"Paul")
+            var owner = Person(name:"Paul")
             if let messages = MockChat.shared?.messages,
                 let first = messages.first(where: { $0.sender?.name == owner.name }),
                 let objectId = first.sender?.objectId {
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             chatViewController.delegate = chatDataSource
             chatViewController.sendMessageBlock = { (_ message:String, _ succed:@escaping ()->Void) in
                 guard let chatDataSource = chatViewController.dataSource as? ChatDataSource<PersonMessage, Person> else { return }
-                let personMessage = PersonMessage()
+                var personMessage = PersonMessage()
                 personMessage.message = message
                 personMessage.sender = self.owner
                 if chatDataSource.chatList.contains( where: { $0 == personMessage } ) { return }
