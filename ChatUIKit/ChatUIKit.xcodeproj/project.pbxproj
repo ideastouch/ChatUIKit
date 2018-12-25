@@ -99,18 +99,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C97A58F921CDAFF500EFAD36 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */,
-				C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */,
-				C9D2C4E621CDF8480092AEFC /* UIColor+Ext.swift */,
-				C9D2C4E921CDF8B00092AEFC /* UIImage+Ext.swift */,
-				C9D2C4F221CF40400092AEFC /* Message+Ext.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		C9B6807421C6EA860068697F = {
 			isa = PBXGroup;
 			children = (
@@ -132,13 +120,13 @@
 		C9B6808021C6EA860068697F /* ChatUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				C9D2C50321D093550092AEFC /* Model */,
-				C9D2C4F621D06A5E0092AEFC /* ModelView */,
-				C9D2C4F521D06A4B0092AEFC /* Controller */,
-				C97A58F921CDAFF500EFAD36 /* Extensions */,
+				C9D2C53C21D1C5B40092AEFC /* Extensions */,
+				C9D2C53D21D1C5E70092AEFC /* Model */,
+				C9D2C53F21D1C6220092AEFC /* Controller */,
+				C9D2C53E21D1C6070092AEFC /* ModelView */,
+				C9D2C53B21D1C5720092AEFC /* Resources */,
 				C9B6808121C6EA860068697F /* ChatUIKit.h */,
 				C9D2C4EC21CDF9010092AEFC /* ChatUIKit.swift */,
-				C9B6813121C78EF20068697F /* Resources */,
 				C9B680A821C711290068697F /* Supporting Files */,
 			);
 			path = ChatUIKit;
@@ -161,42 +149,54 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C9B6813121C78EF20068697F /* Resources */ = {
+		C9D2C53B21D1C5720092AEFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				C9B6809D21C6F0F80068697F /* ChatViewController.xib */,
 				C97A58EE21CD949D00EFAD36 /* ChatUIKit.xcassets */,
 				C97A58F721CDAA8700EFAD36 /* Fonts.bundle */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		C9D2C4F521D06A4B0092AEFC /* Controller */ = {
+		C9D2C53C21D1C5B40092AEFC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
-				C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */,
+				C97A58FA21CDBA9900EFAD36 /* Bundle+Ext.swift */,
+				C97A58E321C7A20600EFAD36 /* UIFont+Ext.swift */,
+				C9D2C4E621CDF8480092AEFC /* UIColor+Ext.swift */,
+				C9D2C4E921CDF8B00092AEFC /* UIImage+Ext.swift */,
+				C9D2C4F221CF40400092AEFC /* Message+Ext.swift */,
 			);
-			name = Controller;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C9D2C4F621D06A5E0092AEFC /* ModelView */ = {
+		C9D2C53D21D1C5E70092AEFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9D2C50721D093FA0092AEFC /* Sender.swift */,
+				C9D2C50421D093BF0092AEFC /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9D2C53E21D1C6070092AEFC /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
 				C9B680A421C6F2250068697F /* BubbleTableViewCell.swift */,
 				C9D2C4EF21CDFFC60092AEFC /* BubbleData.swift */,
 				C9B6809B21C6F0F80068697F /* ChatDataSource.swift */,
 			);
-			name = ModelView;
+			path = ModelView;
 			sourceTree = "<group>";
 		};
-		C9D2C50321D093550092AEFC /* Model */ = {
+		C9D2C53F21D1C6220092AEFC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C9D2C50721D093FA0092AEFC /* Sender.swift */,
-				C9D2C50421D093BF0092AEFC /* Message.swift */,
+				C9B6809C21C6F0F80068697F /* ChatViewContoller.swift */,
+				C9D2C4F721D06D270092AEFC /* CVC+UITextViewDelegate.swift */,
 			);
-			name = Model;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

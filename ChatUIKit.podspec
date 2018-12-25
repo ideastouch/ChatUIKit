@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ChatUIKit"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "An exquisite UIKit library for chatting interface."
   s.description  = <<-DESC
 TBD: An exquisite UIKit library for chatting interface.
@@ -12,7 +12,7 @@ TBD: An exquisite UIKit library for chatting interface.
   s.ios.deployment_target = '11.0'
   s.swift_version = "4.2"
   s.source       = { :git => "https://github.com/ideastouch/ChatUIKit.git", :tag => "#{s.version}" }
-  s.source_files  = "ChatUIKit/ChatUIKit/*.{h,swift}"
-  s.resources = 'ChatUIKit/ChatUIKit/*.{xib,otf,xcassets,bundle}'
+  s.source_files  = "ChatUIKit/ChatUIKit/**/*.{h,swift}"
+  s.resources = 'ChatUIKit/ChatUIKit/**/*.{xib,otf,xcassets,bundle}'
   s.requires_arc = true
 end
