@@ -1,4 +1,4 @@
 # ChatUIKit
 An exquisite UIKit library for chatting interface.
 
-![](images/chat05.png) | ![](images/chat10.png) | ![](images/chat15.png) | ![](images/chat20.png)
+<img src="images/chat05.png" height="360dp"> <img src="images/chat10.png" height="360dp"> <img src="images/chat15.png" height="360dp"> <img src="images/chat20.png" height="360dp">
