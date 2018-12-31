@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ChatViewController: UIViewController {
+open class ChatViewController: UIViewController {
     static public let CellIdentifier = "ChatCellIdentifier"
     public var navigationTitle = "Messages"
     public var dataSource: UITableViewDataSource? { didSet {
@@ -38,8 +38,8 @@ public class ChatViewController: UIViewController {
         if self.textView.isFirstResponder {
             self.textView.resignFirstResponder() } }
     
-    init() {
-        super.init(nibName: "ChatViewController", bundle: nil) }
+    public init() {
+        super.init(nibName: "ChatViewController", bundle: ChatUIKit.bundle()) }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -51,12 +51,20 @@ public class ChatViewController: UIViewController {
         self.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.translatesAutoresizingMaskIntoConstraints = true }
     
-    override public func viewDidLoad() {
+    @objc func refreshData() {
+    }
+    
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(BubbleTableViewCell.self, forCellReuseIdentifier: ChatViewController.CellIdentifier)
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self.delegate
-        self.checkOnNavigationPosition() }
+        self.checkOnNavigationPosition()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(ChatViewController.refreshData),
+                                 for: UIControl.Event.valueChanged)
+        self.tableView.refreshControl = refreshControl }
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

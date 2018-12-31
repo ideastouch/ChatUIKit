@@ -12,11 +12,11 @@ import ChatUIKit
 
 struct PersonMessage: Message, Codable {
     static var objectIdSet = Set<String>()
-    typealias Sender = Person
+//    typealias Sender = Person
     var objectId: String?
     var date: Date?
     var message: String?
-    var sender: Sender?
+    var sender: Person?
     var timeStr: String? { get { return self.date?.chatUIKitTimeStr  } }
     var dayStr: String? { get { return self.date?.chatUIKitDayStr } }
     init() {
