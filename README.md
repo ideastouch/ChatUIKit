@@ -2,7 +2,7 @@
 
 An exquisite UIKit library for chatting interface.
 
-`Chatto` is a Swift lightweight framework to build chat applications. It's been designed to be extensible and performant. See it in action!
+`ChatUIKit` is a Swift lightweight framework to build chat applications. It's been designed to be extensible and performant. See it in action!
 
 <img src="https://github.com/ideastouch/ChatUIKit/blob/master/images/chat05.png" height="360dp"> <img src="https://github.com/ideastouch/ChatUIKit/blob/master/images/chat10.png" height="360dp"> <img src="https://github.com/ideastouch/ChatUIKit/blob/master/images/chat15.png" height="360dp"> <img src="https://github.com/ideastouch/ChatUIKit/blob/master/images/chat20.png" height="360dp">
 
