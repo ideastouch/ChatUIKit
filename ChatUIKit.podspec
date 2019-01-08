@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ChatUIKit'
-  s.version = '1.1.2'
+  s.version = '1.1.3'
   s.summary = 'An exquisite UIKit library for chatting interface.'
   s.homepage = 'https://github.com/ideastouch/ChatUIKit'
   s.license = { :type => 'MIT', :file => 'LICENSE' }

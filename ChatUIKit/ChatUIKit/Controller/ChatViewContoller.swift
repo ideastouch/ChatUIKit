@@ -18,6 +18,7 @@ open class ChatViewController: UIViewController {
         if let _ = self.viewIfLoaded, let tableView = self.tableView {
             tableView.delegate = self.delegate } } }
     public var sendMessageBlock: ((_ message:String, _ complete:@escaping ()->Void)->Void)?
+    public var refreshControlBlock: (()->Void)?
     
     @IBOutlet public weak var tableView: UITableView! {
         didSet {
@@ -51,7 +52,9 @@ open class ChatViewController: UIViewController {
         self.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.translatesAutoresizingMaskIntoConstraints = true }
     
-    @objc func refreshData() {
+    
+    @objc func refreshControlAction() {
+        self.refreshControlBlock?()
     }
     
     override open func viewDidLoad() {
@@ -62,7 +65,7 @@ open class ChatViewController: UIViewController {
         self.checkOnNavigationPosition()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self,
-                                 action: #selector(ChatViewController.refreshData),
+                                 action: #selector(ChatViewController.refreshControlAction),
                                  for: UIControl.Event.valueChanged)
         self.tableView.refreshControl = refreshControl }
     
@@ -98,36 +101,53 @@ open class ChatViewController: UIViewController {
         else {
             return nil } }
     
+    fileprivate func keyboardAnimationLegacy(_ notification:Notification) {
+        guard let userInfo = (notification as NSNotification).userInfo else { return }
+        guard let (animationCurveUser, animationDurationUser, heightEnd) =
+            self.keyboardUserInfoValues(userInfo as NSDictionary) else {
+                return }
+        let animationOptions =  UIView.AnimationOptions(rawValue: UInt(animationCurveUser))
+        if self.fromBottomSafeareaLayoutConstraint.constant == -heightEnd { return }
+        let animationBlock = { () in
+            self.fromBottomSafeareaLayoutConstraint.constant = -heightEnd
+            self.view.setNeedsUpdateConstraints()
+            self.view.layoutIfNeeded() }
+        if animationDurationUser == 0 {
+            animationBlock()
+            return
+        }
+        UIView.animate(withDuration: animationDurationUser,
+                       delay: 0,
+                       options: animationOptions,
+                       animations: animationBlock,
+                       completion: { (Bool) in })
+    }
+    
+    fileprivate func keyboardAnimation(_ notification:Notification) {
+        guard let userInfo = (notification as NSNotification).userInfo else { return }
+        guard let (animationCurveUser, animationDurationUser, _) =
+            self.keyboardUserInfoValues(userInfo as NSDictionary) else {
+                return }
+        let animationOptions =  UIView.AnimationOptions(rawValue: UInt(animationCurveUser))
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return }
+        let keyboardFrameInView = view.convert(keyboardFrame, from: nil)
+        let safeAreaFrame = view.safeAreaLayoutGuide.layoutFrame.insetBy(dx: 0, dy: -self.additionalSafeAreaInsets.bottom)
+        let intersection = safeAreaFrame.intersection(keyboardFrameInView)
+        UIView.animate(withDuration: animationDurationUser, delay: 0, options: animationOptions,
+                       animations: {
+                        self.additionalSafeAreaInsets.bottom = intersection.height
+                        self.view.layoutIfNeeded() },
+                       completion: nil)
+    }
+    
     @objc func keyboardWillChangeFrameNotificationAction(_ notification:Notification){
-        if let userInfo = (notification as NSNotification).userInfo {
-            guard let (animationCurveUser, animationDurationUser, heightEnd) =
-                self.keyboardUserInfoValues(userInfo as NSDictionary) else {
-                    return }
-            let animationOptions =  UIView.AnimationOptions(rawValue: UInt(animationCurveUser))
-            if #available(iOS 11.0, *) {
-                guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-                    return }
-                let keyboardFrameInView = view.convert(keyboardFrame, from: nil)
-                let safeAreaFrame = view.safeAreaLayoutGuide.layoutFrame.insetBy(dx: 0, dy: -self.additionalSafeAreaInsets.bottom)
-                let intersection = safeAreaFrame.intersection(keyboardFrameInView)
-                UIView.animate(withDuration: animationDurationUser, delay: 0, options: animationOptions,
-                               animations: {
-                                self.additionalSafeAreaInsets.bottom = intersection.height
-                                self.view.layoutIfNeeded() },
-                               completion: nil) }
-            else {
-                if self.fromBottomSafeareaLayoutConstraint.constant == -heightEnd { return }
-                let animationBlock = { () in
-                    self.fromBottomSafeareaLayoutConstraint.constant = -heightEnd
-                    self.view.setNeedsUpdateConstraints()
-                    self.view.layoutIfNeeded() }
-                if animationDurationUser > 0 {
-                    UIView.animate(withDuration: animationDurationUser,
-                                   delay: 0,
-                                   options: animationOptions,
-                                   animations: animationBlock,
-                                   completion: { (Bool) in }) }
-                else { animationBlock() } } } }
+        if #available(iOS 11.0, *) {
+            self.keyboardAnimation(notification)
+        }
+        else {
+            self.keyboardAnimationLegacy(notification)
+        } }
     
     @objc func keyboardDidChangeFrameNotificationAction(_ notification:Notification){
         if #available(iOS 11.0, *) {
@@ -146,8 +166,10 @@ open class ChatViewController: UIViewController {
     
     func checkOnNavigationPosition () {
         if #available(iOS 11.0, *) { return }
-        if (self.navigationBar.frame.origin.y != 20) {
-            UIView.animate(withDuration: 0.5) {
+        let originY = CGFloat(20)
+        let duration = TimeInterval(0.5)
+        if (self.navigationBar.frame.origin.y != originY) {
+            UIView.animate(withDuration: duration) {
                 self.navToSafeAreaLayoutConstraint.constant = 20 - self.navigationBar.frame.origin.y
                 self.view.layoutIfNeeded() } } }
     

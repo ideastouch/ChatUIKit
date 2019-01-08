@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 
 extension ChatViewController: UITextViewDelegate {
-    
     public func textViewDidBeginEditing(_ textView: UITextView) {
         self.resetTablePosition() }
     
     public func textViewDidEndEditing(_ textView: UITextView) {
         self.resetTablePosition() }
-    
     
     public func textViewDidChange(_ textView: UITextView) {
         struct HeightSizes {

@@ -31,7 +31,6 @@ class BubbleData {
         case TalkOther   = "TalkOther" }
     
     class func senderGroupToPosition(_ prev:Sender, current:Sender, next:Sender) -> Int {
-        // TODO: Add test cases for the switch below
         switch (prev, next) {
         case (Sender.none, current):
             return Position.First
@@ -151,26 +150,31 @@ class BubbleData {
             let paragraphStyleLeft = NSParagraphStyle()
             let paragraphStyleRight = NSMutableParagraphStyle()
             paragraphStyleRight.alignment = .right
-            if (description.position & Position.First) == Position.First {
-                if let attributedHeader = self.attributedHeader {
-                    attributedText.append(attributedHeader)
-                    attributedText.addAttribute(NSAttributedString.Key.paragraphStyle,
-                                                value: paragraphStyleRight,
-                                                range: NSMakeRange(length, attributedHeader.length))
-                    length += attributedHeader.length } }
+            // Attributed Header
+            if (description.position & Position.First) == Position.First,
+                let attributedHeader = self.attributedHeader {
+                attributedText.append(attributedHeader)
+                attributedText.addAttribute(NSAttributedString.Key.paragraphStyle,
+                                            value: paragraphStyleRight,
+                                            range: NSMakeRange(length, attributedHeader.length))
+                length += attributedHeader.length }
+            // Attributed Boddy
             let attributedBoddy = self.attributedBoddy
             attributedText.append(attributedBoddy)
             attributedText.addAttribute(NSAttributedString.Key.paragraphStyle,
                                         value: paragraphStyleLeft,
                                         range: NSMakeRange(length, attributedBoddy.length))
             length += attributedBoddy.length
+            // Attributed Footer Lead
+            if let _ = self.attributedFooter,
+                let attributedFooterLead = self.attributedFooterLead {
+                attributedText.append(attributedFooterLead)
+                attributedText.addAttribute(NSAttributedString.Key.paragraphStyle,
+                                            value: paragraphStyleRight,
+                                            range: NSMakeRange(length, attributedFooterLead.length))
+                length += attributedFooterLead.length }
+            // Attributed Footer
             if let attributedFooter = self.attributedFooter {
-                if let attributedFooterLead = self.attributedFooterLead {
-                    attributedText.append(attributedFooterLead)
-                    attributedText.addAttribute(NSAttributedString.Key.paragraphStyle,
-                                                value: paragraphStyleRight,
-                                                range: NSMakeRange(length, attributedFooterLead.length))
-                    length += attributedFooterLead.length }
                 attributedText.append(attributedFooter)
                 attributedText.addAttribute(NSAttributedString.Key.paragraphStyle,
                                             value: paragraphStyleRight,

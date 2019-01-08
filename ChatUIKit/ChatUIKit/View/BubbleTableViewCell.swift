@@ -6,6 +6,7 @@
 //  Copyright © 2016 TroupeFit LLC. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 // Bubble Image sizes
@@ -14,35 +15,43 @@ import UIKit
 // horizontal: 8 and 13
 // vertical  : 6, 10
 
+private func bubbleImageViewMaker(name: String) -> UIImageView? {
+    guard var image = UIImage.chatUIKit(named: name) else { return nil }
+    let imageSize = image.size
+    let height = imageSize.height * 0.5
+    let width = imageSize.width * 0.5
+    let insets = UIEdgeInsets(top: height, left: width, bottom: height, right: width)
+    image = image.resizableImage(withCapInsets: insets, resizingMode: .stretch)
+    return UIImageView(image: image)
+}
+
+private func bubbleTextLableMaker(frame: CGRect, bubbleData:BubbleData) -> UILabel {
+    let textLabel = UILabel(frame: frame)
+    textLabel.attributedText = bubbleData.attributedText
+    textLabel.lineBreakMode = .byWordWrapping
+    textLabel.numberOfLines = 0
+    textLabel.backgroundColor = UIColor.clear
+    textLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    textLabel.isUserInteractionEnabled = true
+    return textLabel
+}
+
 class BubbleTableViewCell : UITableViewCell {
     var bubbleData:BubbleData? {
         didSet {
-            if let bubbleData = self.bubbleData {
-                if let named = bubbleData.name {
-                    let image = UIImage.chatUIKit(named: named)
-                    if let imageSize = image?.size {
-                        let height = imageSize.height * 0.5
-                        let width = imageSize.width * 0.5
-                        let insets = UIEdgeInsets(top: height, left: width, bottom: height, right: width)
-                        if let image = image?.resizableImage(withCapInsets: insets, resizingMode: .stretch) {
-                            self.bubbleImageView = UIImageView(image: image) } } }
-                if let bubbleImageView = self.bubbleImageView {
-                    self.textLabel?.isHidden = true
-                    let customTextLabel = UILabel(frame: self.bubbleInnerFrame)
-                    customTextLabel.attributedText = bubbleData.attributedText
-                    customTextLabel.lineBreakMode = .byWordWrapping
-                    customTextLabel.numberOfLines = 0
-                    customTextLabel.backgroundColor = UIColor.clear
-                    customTextLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                    customTextLabel.isUserInteractionEnabled = true
-                    bubbleImageView.addSubview(customTextLabel) } } } }
+            if let bubbleData = self.bubbleData,
+                let named = bubbleData.name,
+                let bubbleImageView = bubbleImageViewMaker(name: named) {
+                self.textLabel?.isHidden = true
+                let textLabel = bubbleTextLableMaker(frame:self.bubbleInnerFrame, bubbleData: bubbleData)
+                bubbleImageView.addSubview(textLabel)
+                self.bubbleImageView = bubbleImageView } } }
 
     override func prepareForReuse() {
         self.bubbleImageView?.removeFromSuperview()
         self.bubbleImageView = nil
         self.textLabel?.text = nil
         self.textLabel?.attributedText = nil }
-    
     
     static fileprivate let innerSize: (innerWidth:CGFloat, outerWidth:CGFloat, topHeight:CGFloat, bottomHeight:CGFloat) = (13, 8, 6, 10)
     
@@ -75,7 +84,10 @@ class BubbleTableViewCell : UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented") }
     
-    fileprivate class var bubbleOffset:CGFloat { return 48 }
+    fileprivate class var bubbleOffset:CGFloat {
+        let offset = CGFloat(48)
+        return offset }
+    
     fileprivate var bubbleFrame:CGRect? {
         get {
             var frame = self.contentView.frame

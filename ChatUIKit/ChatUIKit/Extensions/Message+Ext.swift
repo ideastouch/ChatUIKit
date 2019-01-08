@@ -49,7 +49,7 @@ extension DateFormatter {
 }
 
 /*
- Date Extesion with an example of how implement Protocol Message gets 'timeStr' and 'dateStr'
+ Date Extesion with an sugestion of how implement the computer variable 'timeStr' and 'dateStr' using a given Date.
  */
 extension Date {
     func datePostfix(_ number:Int) -> String {

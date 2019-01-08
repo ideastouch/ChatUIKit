@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public protocol SenderProtocol: Equatable {
     var objectId: String? { get }
     var name: String? { get }
